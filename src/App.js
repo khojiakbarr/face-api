@@ -87,12 +87,12 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <h1 className="text-[30px] my-[30px]">Face Recognition App</h1>
+      <h1 className="text-[25px] my-[20px]">Face Recognition App</h1>
       <input
         type="file"
         onChange={handleImageUpload}
         accept="image/*"
-        className="my-[30px]"
+        className="my-[20px]"
       />
       <video ref={videoRef} autoPlay muted width="420" height="460" />
       <div className="flex justify-center gap-[10px]">
