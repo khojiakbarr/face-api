@@ -55,6 +55,7 @@ function App() {
   const compareFaces = async () => {
     if (!imageFile || !videoRef.current) return;
     setIsLoading(true);
+    setIsMatched(null);
     const uploadedImage = await faceapi.bufferToImage(imageFile);
     const detectionFromImage = await faceapi
       .detectSingleFace(uploadedImage)
@@ -98,14 +99,14 @@ function App() {
         <button
           onClick={compareFaces}
           disabled={!imageFile}
-          className="rounded py-2 px-4 bg-gray-500 text-white mt-[20px] disabled:bg-slate-200"
+          className="rounded py-2 px-4 bg-gray-500 text-white mt-[20px] disabled:bg-slate-200 active:scale-90 transition-all"
         >
           Compare Faces
         </button>{" "}
         <button
           disabled={!isModelsLoaded}
           onClick={() => openVideo()}
-          className="rounded py-2 px-4 bg-gray-500 text-white mt-[20px] disabled:bg-slate-200"
+          className="rounded py-2 px-4 bg-gray-500 text-white mt-[20px] disabled:bg-slate-200 active:scale-90 transition-all"
         >
           Open Video
         </button>
