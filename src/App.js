@@ -71,7 +71,7 @@ function App() {
         detectionFromImage.descriptor,
         detectionFromVideo.descriptor
       );
-      setIsMatched(distance < 0.6);
+      setIsMatched(distance < 0.4);
     } else {
       setIsMatched(null);
     }
@@ -94,7 +94,7 @@ function App() {
         accept="image/*"
         className="my-[20px]"
       />
-      <video ref={videoRef} width="420" height="460" controls={false} />
+      <video ref={videoRef} width="420" height="460"  autoPlay muted/>
       <div className="flex justify-center gap-[10px]">
         <button
           onClick={compareFaces}
