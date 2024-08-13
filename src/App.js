@@ -26,7 +26,7 @@ function App() {
 
   function openVideo() {
     navigator.mediaDevices
-      .getUserMedia({ video: true })
+      .getUserMedia({ video: { facingMode: "user" } })
       .then((stream) => {
         videoRef.current.srcObject = stream;
         setIsModelsLoaded(false);
@@ -94,7 +94,7 @@ function App() {
         accept="image/*"
         className="my-[20px]"
       />
-      <video ref={videoRef} autoPlay muted width="420" height="460" />
+      <video ref={videoRef} width="420" height="460" controls={false} />
       <div className="flex justify-center gap-[10px]">
         <button
           onClick={compareFaces}
