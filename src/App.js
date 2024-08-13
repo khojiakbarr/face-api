@@ -71,7 +71,7 @@ function App() {
         detectionFromImage.descriptor,
         detectionFromVideo.descriptor
       );
-      setIsMatched(distance < 0.6);
+      setIsMatched(distance < 0.5);
     } else {
       setIsMatched(null);
     }
