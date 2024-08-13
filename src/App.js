@@ -10,17 +10,17 @@ function App() {
   useEffect(() => {
     const loadModels = async () => {
       try {
-        const MODEL_URL = '/models';
+        const MODEL_URL = "/models";
         await faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL);
         await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
         await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);
-  
+
         setIsModelsLoaded(true);
       } catch (error) {
-        console.error('Error loading models:', error);
+        console.error("Error loading models:", error);
       }
     };
-  
+
     loadModels();
   }, []);
 
@@ -64,10 +64,18 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <h1>Face Recognition App</h1>
       <input type="file" onChange={handleImageUpload} accept="image/*" />
-      <video ref={videoRef} autoPlay muted width="720" height="560" />
+      <video ref={videoRef} autoPlay muted width="420" height="460"  />
       <button onClick={compareFaces}>Compare Faces</button>
       {isMatched !== null && (
         <h2>{isMatched ? "Faces Match!" : "Faces Do Not Match!"}</h2>
